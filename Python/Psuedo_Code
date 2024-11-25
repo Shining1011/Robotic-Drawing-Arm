@@ -1,0 +1,30 @@
+l1 = 1
+l2 = 1
+
+fa = a1 + a2
+fx = l2*cos(a1+a2) + l1*cos(a1)
+fy = l2*sin(a1+a2) + l1*sin(a1)
+
+l2*cos(a1+a2) = fx - l1*cos(a1)
+l2*sin(a1+a2) = fy - l1*sin(a1)
+
+square and add both equations
+
+l2^2 = fx^2 - 2*fx*l1*cos(a1) + (l1*cos(a1))^2 + fy^2 - 2*fy*l1*sin(a1) + (l1*sin(a1))^2 
+
+constant = fx^2 + fy^2 + l1^2 - l2^2 
+cos = 2*fx*-l1*cos(a1)
+sin = 2*fy*-l1*sin(a1)
+
+cos_coef = 2*fx*-l1
+sin_coef = 2*fy*-l1
+
+Treat like a triangle and solve
+a1 = tan-1(sin_coef/cos_coef) +- cos-1(constant/(sqrt(cos_coef^2 + sin_coef^2)))
+a1_1 = tan-1(sin_coef/cos_coef) + cos-1(constant/(sqrt(cos_coef^2 + sin_coef^2)))
+a1_2 = tan-1(sin_coef/cos_coef) - cos-1(constant/(sqrt(cos_coef^2 + sin_coef^2)))
+
+solve for a2 with a1
+
+tan(a1 + a2) = (fx - l1*cos(a1)) / (fy - l1*sin(a1))
+a2 = atan( (fx - l1*cos(a1)) / (fy - l1*sin(a1))) - a1
