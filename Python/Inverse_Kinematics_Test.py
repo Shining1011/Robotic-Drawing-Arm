@@ -19,12 +19,13 @@ ports_list = []
 # t.hideturtle()
 #endregion
 
-#region Initialize starting variables
+#region Initialize Starting Variables
 screen_size = pyautogui.size()
 original_pos_x = [0, screen_size[0]]
 mapped_pos_x = [0,1000]
 original_pos_y = [0, screen_size[1]]
 mapped_pos_y = [0,1000]
+#endregion
 
 #get availble ports
 for one in ports:
@@ -158,11 +159,13 @@ def send_serial_data(a1,a2):
     print("Recieved Data: " + str(data))
     print("Send & recieve took: " + str(time.time()-Timer))
     # serial_inst.write(input("input angle: ").encode("utf-8"))
-    
-try:
-    while True:
-        angles = create_arm()
-        send_serial_data(angles[0], angles[1])
-except KeyboardInterrupt:
-    exit
 
+def main():
+    try:
+        while True:
+            angles = create_arm()
+            send_serial_data(angles[0], angles[1])
+    except KeyboardInterrupt:
+        exit
+
+main()

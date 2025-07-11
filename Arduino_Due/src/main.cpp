@@ -18,12 +18,8 @@ float last_a2 = 0;
 int i = 0;
 
 void test(){
-  i = i+0.5;
-  arm_1.write(i);
-  if(i == 180){
-    i = 0;
-  }
-  delay(50);
+  digitalWrite(2, HIGH);
+  digitalWrite(2, HIGH);
 }
 
 void move_arms(){
@@ -47,17 +43,19 @@ void move_arms(){
 }
 
 void setup() {
-  Serial.begin(115200);
-  Serial.setTimeout(2);
-  arm_1.attach(ARM_1_PIN);
-  arm_2.attach(ARM_2_PIN);
-  arm_1.write(0);
-  arm_2.write(0);
+  // Serial.begin(115200);
+  // Serial.setTimeout(2);
+  // arm_1.attach(ARM_1_PIN);
+  // arm_2.attach(ARM_2_PIN);
+  // arm_1.write(0);
+  // arm_2.write(0);
+  pinMode(2, OUTPUT);
+  pinMode(3, OUTPUT);
 }
 
 void loop() {
-  // test();
-  move_arms();
+  test();
+  // move_arms();
 }
 
 
