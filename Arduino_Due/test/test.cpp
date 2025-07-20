@@ -1,11 +1,21 @@
 #include <Arduino.h>
+#include <Stepper.h>
+
+const int stepsPerRevolution = 200;
+
+Stepper ms(stepsPerRevolution, 2,3,4,5);
 
 void setup(){
-    pinMode(2, OUTPUT);
-    pinMode(3, OUTPUT);
+    ms.setSpeed(60);
+    Serial.begin(9600);
 }
 
 void loop(){
-    digitalWrite(2, HIGH);
-    digitalWrite(2, HIGH);
+    Serial.println("clockwise");
+    ms.step(stepsPerRevolution);
+    delay(500);
+
+    Serial.println("counter clockwise");
+    ms.step(-stepsPerRevolution);
+    delay(500);
 }
